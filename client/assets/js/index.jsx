@@ -1,10 +1,14 @@
 import React from 'react';
 import { render } from 'react-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import IndexPage from './pages/Index';
 
-const App = () => (
-  <div>
-    Hello, world!
-  </div>
+const Root = () => (
+  <Router>
+    <div>
+      <Route exact path="/" component={IndexPage} />
+    </div>
+  </Router>
 );
 
-render(<App />, document.getElementById('root'));
+render(<Root />, document.getElementById('root'));

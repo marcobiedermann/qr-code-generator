@@ -3,6 +3,7 @@ const path = require('path');
 module.exports = {
   devServer: {
     contentBase: 'client',
+    historyApiFallback: true,
   },
   entry: {
     main: [
