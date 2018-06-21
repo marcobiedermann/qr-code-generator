@@ -1,6 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
+import 'typeface-roboto/index.css';
 import Router from './router';
 import store from './store';
 

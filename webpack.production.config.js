@@ -27,15 +27,29 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        exclude: /node_modules/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: [
             {
               loader: 'css-loader',
+              options: {
+                minimize: true,
+                sourceMap: true,
+              },
             },
           ],
         }),
+      },
+      {
+        test: /\.woff2?$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: 'assets/fonts/[name].[ext]',
+            },
+          },
+        ],
       },
     ],
   },
