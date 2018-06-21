@@ -1,5 +1,5 @@
 import { applyMiddleware } from 'redux';
-import { routerMiddleware } from 'react-router-redux';
+import { routerMiddleware } from 'connected-react-router';
 import history from '../router/history';
 
 const middleware = applyMiddleware(routerMiddleware(history));
