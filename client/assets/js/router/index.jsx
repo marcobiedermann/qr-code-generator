@@ -5,15 +5,16 @@ import {
   Switch,
 } from 'react-router-dom';
 import history from './history';
+import Layout from '../components/Layout';
 import IndexPage from '../pages/Index';
 
 const Router = () => (
   <ConnectedRouter history={history}>
-    <div>
+    <Layout>
       <Switch>
         <Route exact path="/" component={IndexPage} />
       </Switch>
-    </div>
+    </Layout>
   </ConnectedRouter>
 );
 
