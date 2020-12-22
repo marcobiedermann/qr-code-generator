@@ -4,7 +4,7 @@ import React from 'react';
 const Header = () => (
   <AppBar position="static">
     <Toolbar>
-      <Typography color="inherit" variant="title">
+      <Typography color="inherit" variant="h1">
         QR Code Generator
       </Typography>
     </Toolbar>

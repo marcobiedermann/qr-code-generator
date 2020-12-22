@@ -1,41 +1,64 @@
 import { Tab, Tabs } from '@material-ui/core';
-import React, { Component } from 'react';
+import React, { ChangeEvent, FC } from 'react';
 
-class IndexPage extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      value: 0,
-    };
-  }
-
-  handleChange(event, value) {
-    this.setState({
-      value,
-    });
-  }
-
-  render() {
-    return (
-      <div>
-        <Tabs value={this.state.value} onChange={(event, value) => this.handleChange(event, value)}>
-          <Tab label="Text" href="#text" />
-          <Tab label="URL" href="#url" />
-          <Tab label="Contact" href="#contact" />
-          <Tab label="Phone" href="#phone" />
-          <Tab label="SMS" href="#sms" />
-          <Tab label="WiFi" href="#wifi" />
-        </Tabs>
-        {this.state.value === 0 && <div>Text</div>}
-        {this.state.value === 1 && <div>URL</div>}
-        {this.state.value === 2 && <div>Contact</div>}
-        {this.state.value === 3 && <div>Phone</div>}
-        {this.state.value === 4 && <div>SMS</div>}
-        {this.state.value === 5 && <div>WiFi</div>}
-      </div>
-    );
-  }
+interface TabPanelProps {
+  index: number;
+  value: number;
 }
+
+const TabPanel: FC<TabPanelProps> = (props) => {
+  const { children, index, value, ...other } = props;
+
+  return (
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
+      {...other}
+    >
+      {value === index && <div>{children}</div>}
+    </div>
+  );
+};
+
+const IndexPage = () => {
+  const [value, setValue] = React.useState(0);
+
+  const handleChange = (_event: ChangeEvent<{}>, newValue: number): void => {
+    setValue(newValue);
+  };
+
+  return (
+    <div>
+      <Tabs value={value} onChange={handleChange}>
+        <Tab label="Text" href="#text" />
+        <Tab label="URL" href="#url" />
+        <Tab label="Contact" href="#contact" />
+        <Tab label="Phone" href="#phone" />
+        <Tab label="SMS" href="#sms" />
+        <Tab label="WiFi" href="#wifi" />
+      </Tabs>
+      <TabPanel value={value} index={0}>
+        Text
+      </TabPanel>
+      <TabPanel value={value} index={1}>
+                URL
+      </TabPanel>
+      <TabPanel value={value} index={2}>
+                Contact
+      </TabPanel>
+      <TabPanel value={value} index={3}>
+                Phone
+      </TabPanel>
+      <TabPanel value={value} index={4}>
+                SMS
+      </TabPanel>
+      <TabPanel value={value} index={5}>
+                WiFi
+      </TabPanel>
+    </div>
+  );
+};
 
 export default IndexPage;
