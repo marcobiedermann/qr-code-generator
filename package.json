@@ -6,6 +6,7 @@
   "scripts": {
     "build": "webpack --config webpack.production.config.js",
     "develop": "webpack serve --config webpack.development.config.js",
+    "format": "prettier --write .",
     "lint:js": "eslint '**/*.{js,jsx}'",
     "lint": "npm run lint:js",
     "test": "npm run lint"
@@ -23,6 +24,7 @@
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^4.5.0",
+    "prettier": "^2.2.1",
     "style-loader": "^2.0.0",
     "ts-loader": "^8.0.12",
     "typescript": "^4.1.3",

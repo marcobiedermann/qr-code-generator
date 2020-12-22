@@ -1,7 +1,4 @@
-import {
-  Tab,
-  Tabs,
-} from '@material-ui/core';
+import { Tab, Tabs } from '@material-ui/core';
 import React, { Component } from 'react';
 
 class IndexPage extends Component {
@@ -29,7 +26,6 @@ class IndexPage extends Component {
           <Tab label="Phone" href="#phone" />
           <Tab label="SMS" href="#sms" />
           <Tab label="WiFi" href="#wifi" />
-
         </Tabs>
         {this.state.value === 0 && <div>Text</div>}
         {this.state.value === 1 && <div>URL</div>}
