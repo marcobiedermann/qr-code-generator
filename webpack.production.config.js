@@ -6,12 +6,12 @@ const path = require('path');
 module.exports = {
   entry: {
     main: [
-      path.resolve(__dirname, 'client/assets/js/index'),
+      path.resolve(__dirname, 'src/assets/js/index'),
     ],
   },
   output: {
     filename: 'assets/js/[name].js',
-    path: path.resolve(__dirname, 'server/public'),
+    path: path.resolve(__dirname, 'dist'),
   },
   mode: 'production',
   module: {
@@ -89,7 +89,7 @@ module.exports = {
         trimCustomFragments: true,
         useShortDoctype: true,
       },
-      template: 'client/index.html',
+      template: 'src/index.html',
     }),
   ],
   resolve: {
